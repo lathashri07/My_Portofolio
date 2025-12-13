@@ -35,10 +35,10 @@ export default function Portfolio() {
             I am a Software Developer and Aspiring Full Stack Developer passionate about building meaningful web applications and exploring Machine Learning to solve real-world problems.
           </p>
           <div className="flex gap-4 pt-4">
-             <a href="mailto:Example@gmil.com" className="px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition">
+             <a href="mailto:lathashrikh186@gmil.com" className="px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition">
                Contact Me
              </a>
-             <a href="https://github.com/latha7" target="_blank" rel="noreferrer" className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition">
+             <a href="https://github.com/lathashri07" target="_blank" rel="noreferrer" className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition">
                Check GitHub
              </a>
           </div>
@@ -146,14 +146,14 @@ export default function Portfolio() {
           <p className="text-slate-400 text-lg">
             I am currently looking for new opportunities as a Full Stack Developer. Whether you have a question or just want to say hi, my inbox is always open!
           </p>
-          <a href="mailto:Example@gmil.com" className="inline-block px-8 py-4 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition mt-4">
+          <a href="mailto:lathashrikh186@gmil.com" className="inline-block px-8 py-4 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition mt-4">
             Say Hello
           </a>
           
           <div className="flex justify-center gap-6 pt-12">
-            <a href="https://github.com/latha7" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Github /></a>
-            <a href="https://linkedin.com/in/lathashri1" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Linkedin /></a>
-            <a href="mailto:Example@gmil.com" className="text-slate-400 hover:text-teal-400 transition"><Mail /></a>
+            <a href="https://github.com/lathashri07" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Github /></a>
+            <a href="https://www.linkedin.com/in/lathashri37/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Linkedin /></a>
+            <a href="mailto:lathashrikh186@gmil.com" className="text-slate-400 hover:text-teal-400 transition"><Mail /></a>
           </div>
           <p className="text-slate-600 text-sm pt-8 pb-4">Designed & Built by Lathashri K H</p>
         </section>
