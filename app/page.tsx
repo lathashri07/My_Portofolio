@@ -1,44 +1,73 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react'; // Added useState for mobile menu
 import Image from 'next/image';
 import { Typewriter } from 'react-simple-typewriter';
 import { 
   Github, Linkedin, Mail, ExternalLink, Code2, Database, Terminal, 
-  Cpu, Server, PlayCircle, FileDown, User, Briefcase, FolderOpen, Send 
+  Cpu, Server, PlayCircle, FileDown, User, Briefcase, FolderOpen, Send,
+  Menu, X // Added Menu and X icons for mobile nav
 } from 'lucide-react';
 
 export default function Portfolio() {
+  // State for Mobile Menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to close menu when a link is clicked
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-teal-300 selection:text-teal-900 font-sans">
       
       {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-sm border-b border-slate-800">
+      <nav className="fixed w-full z-50 bg-slate-950/90 backdrop-blur-sm border-b border-slate-800">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-teal-400">Lathashri K H</h1>
-          <div className="flex gap-6 text-sm font-medium text-slate-400">
+          
+          {/* Logo Name */}
+          <h1 className="text-xl font-bold text-teal-400 z-50 relative">Lathashri K H</h1>
+
+          {/* Desktop Menu (Hidden on Mobile) */}
+          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-400">
             <a href="#about" className="hover:text-teal-400 transition">About</a>
             <a href="#skills" className="hover:text-teal-400 transition">Skills</a>
             <a href="#projects" className="hover:text-teal-400 transition">Projects</a>
             <a href="#contact" className="hover:text-teal-400 transition">Contact</a>
           </div>
+
+          {/* Mobile Hamburger Button (Visible only on Mobile) */}
+          <button 
+            className="md:hidden text-slate-400 hover:text-teal-400 z-50 relative"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center space-y-8 text-xl font-bold text-slate-400 md:hidden z-40">
+              <a href="#about" onClick={closeMenu} className="hover:text-teal-400 transition">About</a>
+              <a href="#skills" onClick={closeMenu} className="hover:text-teal-400 transition">Skills</a>
+              <a href="#projects" onClick={closeMenu} className="hover:text-teal-400 transition">Projects</a>
+              <a href="#contact" onClick={closeMenu} className="hover:text-teal-400 transition">Contact</a>
+            </div>
+          )}
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-20 space-y-32">
+      <main className="max-w-5xl mx-auto px-6 pt-32 pb-20 space-y-20 md:space-y-32">
         
         {/* Hero Section */}
         <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-0 pt-10 md:pt-20 min-h-[80vh]">
           
           {/* Left Side - Text Content */}
-          <div className="space-y-6 flex-1 mt-8 md:mt-0 z-10">
+          <div className="space-y-6 flex-1 mt-8 md:mt-0 z-10 text-center md:text-left">
             <div className="space-y-2">
-              <h2 className="text-slate-100 text-3xl tracking-wide">Hi, my name is</h2>
-              <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight">
+              <h2 className="text-slate-100 text-xl md:text-3xl tracking-wide">Hi, my name is</h2>
+              <h1 className="text-4xl md:text-7xl font-bold text-slate-100 tracking-tight">
                 Lathashri K H.
               </h1>
               
               {/* Typing Effect Section */}
-              <h2 className="text-2xl md:text-4xl font-bold text-slate-100 tracking-tight h-[60px] md:h-[50px] flex items-center">
+              <h2 className="text-xl md:text-4xl font-bold text-slate-100 tracking-tight h-[60px] md:h-[50px] flex items-center justify-center md:justify-start">
                 <span className="mr-2">I am a </span>
                 <span className="text-teal-400">
                    <Typewriter
@@ -60,15 +89,15 @@ export default function Portfolio() {
               </h2>
             </div>
 
-            <p className="max-w-xl text-slate-400 text-lg leading-relaxed">
+            <p className="max-w-xl text-slate-400 text-base md:text-lg leading-relaxed mx-auto md:mx-0">
               I am passionate about building meaningful web applications and exploring Machine Learning to solve real-world problems.
             </p>
             
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col md:flex-row gap-4 pt-4 justify-center md:justify-start">
               <a 
                 href="/resume.pdf" 
                 download="Lathashri_Resume.pdf"
-                className="flex items-center gap-2 px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition group"
+                className="flex items-center justify-center gap-2 px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition group"
               >
                 <FileDown size={20} className="group-hover:-translate-y-1 transition" /> 
                 Download Resume
@@ -78,7 +107,7 @@ export default function Portfolio() {
                 href="https://github.com/lathashri07" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition"
+                className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition text-center"
               >
                 Check GitHub
               </a>
@@ -86,7 +115,7 @@ export default function Portfolio() {
           </div>
 
           {/* Right Side - Image with Glowing Circle */}
-          <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] flex-shrink-0">
+          <div className="relative w-[240px] h-[240px] md:w-[400px] md:h-[400px] flex-shrink-0">
             {/* The Circular Image Container with Teal Glow */}
             <div 
               className="relative w-full h-full rounded-full overflow-hidden border-[3px] border-teal-400 z-10 bg-slate-800/50 transition-all duration-500"
@@ -107,7 +136,6 @@ export default function Portfolio() {
 
         {/* About Section */}
         <section id="about" className="space-y-8 scroll-mt-24">
-          {/* UPDATED HEADER: Icon instead of Number */}
           <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-3">
             <User className="text-teal-400" size={28} /> About Me
           </h2>
@@ -137,7 +165,6 @@ export default function Portfolio() {
 
         {/* Experience Section */}
         <section id="experience" className="space-y-8 scroll-mt-24">
-          {/* UPDATED HEADER: Icon instead of Number */}
           <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-3">
             <Briefcase className="text-teal-400" size={28} /> Experience
           </h2>
@@ -157,7 +184,6 @@ export default function Portfolio() {
 
         {/* Skills Section */}
         <section id="skills" className="space-y-8 scroll-mt-24">
-          {/* UPDATED HEADER: Icon instead of Number */}
           <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-3">
             <Cpu className="text-teal-400" size={28} /> Technical Skills
           </h2>
@@ -180,41 +206,35 @@ export default function Portfolio() {
 
           <div className="grid gap-8">
     
-          {/* Project 1: Has GitHub + Video + Live Demo */}
-          <ProjectCard 
-            title="Mental Health Web Application"
-            description="A full-fledged mental health support web application designed to help users manage stress and emotional well-being. Includes AI chatbot, music therapy, and doctor consultation modules."
-            tags={["Node.js", "Express", "MySQL", "Azure", "AI"]}
-            link="YOUR_GITHUB_LINK_HERE"
-            videoLink="https://drive.google.com/file/d/1jriNssdilFk_Wle1_zZvSdmDuc_4xuU6/view?usp=drive_link"
-            // Add your deployed Vercel link below
-            demoLink="https://your-mental-health-app.vercel.app" 
-          />
-
-          {/* Project 2: Has GitHub + Video (No Live Demo yet) */}
-          <ProjectCard 
-            title="AI Talking Doll (Virtual Doctor)"
-            description="An AI-powered virtual doctor feature designed for users who prefer not to talk to real people. It provides mental health guidance through conversational interaction using AI-based responses."
-            tags={["JavaScript", "AI APIs", "Azure Services"]}
-            link="YOUR_GITHUB_LINK_HERE"
-            videoLink="YOUR_YOUTUBE_OR_DRIVE_LINK_HERE"
-            // If you don't have a live link, just don't add demoLink!
-          />
-
-          {/* Project 3: Has GitHub + Live Demo (No Video) */}
-           <ProjectCard 
-            title="Responsive UI Showcase"
-            description="A mobile-first, fully responsive frontend application designed to adapt seamlessly across mobile, tablet, and desktop screens using modern UI practices."
-            tags={["HTML", "Tailwind CSS", "JavaScript"]}
-            link="https://github.com/lathashri07/Mobile_Responsive_Project"
-            demoLink="https://mobile-responsive-project.vercel.app/"
+            <ProjectCard 
+              title="Mental Health Web Application"
+              description="A full-fledged mental health support web application designed to help users manage stress and emotional well-being. Includes AI chatbot, music therapy, and doctor consultation modules."
+              tags={["Node.js", "Express", "MySQL", "Azure", "AI"]}
+              link="YOUR_GITHUB_LINK_HERE"
+              videoLink="https://drive.google.com/file/d/1jriNssdilFk_Wle1_zZvSdmDuc_4xuU6/view?usp=drive_link"
+              demoLink="https://your-mental-health-app.vercel.app" 
             />
+
+            <ProjectCard 
+              title="AI Talking Doll (Virtual Doctor)"
+              description="An AI-powered virtual doctor feature designed for users who prefer not to talk to real people. It provides mental health guidance through conversational interaction using AI-based responses."
+              tags={["JavaScript", "AI APIs", "Azure Services"]}
+              link="YOUR_GITHUB_LINK_HERE"
+              videoLink="YOUR_YOUTUBE_OR_DRIVE_LINK_HERE"
+            />
+
+             <ProjectCard 
+              title="Responsive UI Showcase"
+              description="A mobile-first, fully responsive frontend application designed to adapt seamlessly across mobile, tablet, and desktop screens using modern UI practices."
+              tags={["HTML", "Tailwind CSS", "JavaScript"]}
+              link="https://github.com/lathashri07/Mobile_Responsive_Project"
+              demoLink="https://mobile-responsive-project.vercel.app/"
+             />
           </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="max-w-2xl mx-auto text-center space-y-6 pt-20">
-          {/* UPDATED HEADER: Icon instead of Number */}
           <h2 className="text-teal-400 font-mono flex items-center justify-center gap-2">
             <Send size={16} /> What&apos;s Next?
           </h2>
@@ -263,14 +283,12 @@ function ProjectCard({ title, description, tags, link, videoLink, demoLink }: { 
       {/* Top Right Icons */}
       <div className="absolute top-8 right-8 flex gap-4">
         
-        {/* 1. Live Demo Icon (Only shows if you provide a demoLink) */}
         {demoLink && (
           <a href={demoLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Live Demo">
             <ExternalLink size={22}/>
           </a>
         )}
 
-        {/* 2. GitHub Code Icon */}
         <a href={link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Source Code">
           <Github size={22}/>
         </a>
@@ -288,7 +306,6 @@ function ProjectCard({ title, description, tags, link, videoLink, demoLink }: { 
         ))}
       </ul>
 
-      {/* Watch Demo Video Button */}
       {videoLink && (
         <a 
           href={videoLink} 
