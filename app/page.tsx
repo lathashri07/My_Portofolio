@@ -153,23 +153,25 @@ export default function Portfolio() {
 </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-2xl mx-auto text-center space-y-6 pt-20">
-          <h2 className="text-teal-400 font-mono">05. What&apos;s Next?</h2>
-          <h1 className="text-4xl font-bold text-slate-100">Get In Touch</h1>
-          <p className="text-slate-400 text-lg">
-            I am currently looking for new opportunities as a Full Stack Developer. Whether you have a question or just want to say hi, my inbox is always open!
-          </p>
-          <a href="mailto:lathashrikh186@gmil.com" className="inline-block px-8 py-4 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition mt-4">
-            Say Hello
-          </a>
-          
-          <div className="flex justify-center gap-6 pt-12">
-            <a href="https://github.com/lathashri07" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Github /></a>
-            <a href="https://www.linkedin.com/in/lathashri37/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Linkedin /></a>
-            <a href="mailto:lathashrikh186@gmil.com" className="text-slate-400 hover:text-teal-400 transition"><Mail /></a>
-          </div>
-          <p className="text-slate-600 text-sm pt-8 pb-4">Designed & Built by Lathashri K H</p>
-        </section>
+<section id="contact" className="max-w-2xl mx-auto text-center space-y-6 pt-20">
+  <h2 className="text-teal-400 font-mono">05. What&apos;s Next?</h2>
+  <h1 className="text-4xl font-bold text-slate-100">Get In Touch</h1>
+  <p className="text-slate-400 text-lg">
+    I’m open to internship and entry-level opportunities. Feel free to reach out if you’d like to discuss projects, roles, or collaboration.
+  </p>
+  
+  {/* Contact Me Button */}
+  <a href="mailto:lathashrikh186@gmail.com" className="inline-block px-8 py-4 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition mt-4">
+    Contact Me
+  </a>
+  
+  <div className="flex justify-center gap-6 pt-12">
+    <a href="https://github.com/lathashri07" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Github /></a>
+    <a href="https://www.linkedin.com/in/lathashri37/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition"><Linkedin /></a>
+    <a href="mailto:lathashrikh186@gmail.com" className="text-slate-400 hover:text-teal-400 transition"><Mail /></a>
+  </div>
+  <p className="text-slate-600 text-sm pt-8 pb-4">Designed & Built by Lathashri K H</p>
+</section>
 
       </main>
     </div>
