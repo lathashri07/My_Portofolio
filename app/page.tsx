@@ -278,25 +278,29 @@ function SkillCard({ title, skills }: { title: string, skills: string[] }) {
 
 function ProjectCard({ title, description, tags, link, videoLink, demoLink }: { title: string, description: string, tags: string[], link: string, videoLink?: string, demoLink?: string }) {
   return (
-    <div className="group relative bg-slate-900 p-8 rounded-lg border border-slate-800 transition hover:border-teal-400/30">
+    // Removed 'relative' from here
+    <div className="group bg-slate-900 p-8 rounded-lg border border-slate-800 transition hover:border-teal-400/30">
       
-      {/* Top Right Icons */}
-      <div className="absolute top-8 right-8 flex gap-4">
+      {/* NEW: Flex container for Title and Icons */}
+      <div className="flex justify-between items-start mb-4">
         
-        {demoLink && (
-          <a href={demoLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Live Demo">
-            <ExternalLink size={22}/>
+        {/* Title: Added padding-right so it doesn't touch the icons */}
+        <h3 className="text-xl font-bold text-slate-100 pr-4 group-hover:text-teal-400 transition leading-tight">
+          <a href={demoLink || link} target="_blank" rel="noreferrer">{title}</a>
+        </h3>
+
+        {/* Icons: Removed 'absolute' and placed them here. Added flex-shrink-0 so they don't get squished. */}
+        <div className="flex gap-4 flex-shrink-0">
+          {demoLink && (
+            <a href={demoLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Live Demo">
+              <ExternalLink size={22}/>
+            </a>
+          )}
+          <a href={link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Source Code">
+            <Github size={22}/>
           </a>
-        )}
-
-        <a href={link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-teal-400 transition" title="View Source Code">
-          <Github size={22}/>
-        </a>
+        </div>
       </div>
-
-      <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-teal-400 transition">
-        <a href={demoLink || link} target="_blank" rel="noreferrer">{title}</a>
-      </h3>
       
       <p className="text-slate-400 mb-6 max-w-2xl">{description}</p>
       
