@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code2, Database, Terminal, Cpu, Server, PlayCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Database, Terminal, Cpu, Server, PlayCircle, FileDown } from 'lucide-react';
 
 export default function Portfolio() {
   return (
@@ -21,28 +21,41 @@ export default function Portfolio() {
       <main className="max-w-5xl mx-auto px-6 pt-32 pb-20 space-y-32">
         
         {/* Hero Section */}
-        <section className="space-y-6">
-          <div className="space-y-2">
-            <h2 className="text-teal-400 font-mono text-sm tracking-wide">Hi, my name is</h2>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight">
-              Lathashri K H.
-            </h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-slate-400 tracking-tight">
-              I build things for the web.
-            </h2>
-          </div>
-          <p className="max-w-xl text-slate-400 text-lg leading-relaxed">
-            I am a Software Developer and Aspiring Full Stack Developer passionate about building meaningful web applications and exploring Machine Learning to solve real-world problems.
-          </p>
-          <div className="flex gap-4 pt-4">
-             <a href="mailto:lathashrikh186@gmil.com" className="px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition">
-               Contact Me
-             </a>
-             <a href="https://github.com/lathashri07" target="_blank" rel="noreferrer" className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition">
-               Check GitHub
-             </a>
-          </div>
-        </section>
+<section className="space-y-6">
+  <div className="space-y-2">
+    <h2 className="text-teal-400 font-mono text-sm tracking-wide">Hi, my name is</h2>
+    <h1 className="text-5xl md:text-7xl font-bold text-slate-100 tracking-tight">
+      Lathashri K H.
+    </h1>
+    <h2 className="text-4xl md:text-6xl font-bold text-slate-400 tracking-tight">
+      I build things for the web.
+    </h2>
+  </div>
+  <p className="max-w-xl text-slate-400 text-lg leading-relaxed">
+    I am a Software Developer and Aspiring Full Stack Developer passionate about building meaningful web applications and exploring Machine Learning to solve real-world problems.
+  </p>
+  <div className="flex gap-4 pt-4">
+    {/* Resume Download Button */}
+    <a 
+      href="/resume.pdf" 
+      download="Lathashri_Resume.pdf"
+      className="flex items-center gap-2 px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition group"
+    >
+      <FileDown size={20} className="group-hover:-translate-y-1 transition" /> 
+      Download Resume
+    </a>
+
+    {/* GitHub Button */}
+    <a 
+      href="https://github.com/lathashri07" 
+      target="_blank" 
+      rel="noreferrer" 
+      className="px-6 py-3 bg-teal-400 text-slate-900 rounded font-bold hover:bg-teal-300 transition"
+    >
+      Check GitHub
+    </a>
+  </div>
+</section>
 
         {/* About Section */}
         <section id="about" className="space-y-8 scroll-mt-24">
