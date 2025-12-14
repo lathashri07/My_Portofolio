@@ -43,11 +43,11 @@ export default function Portfolio() {
 
           {/* Mobile Menu Dropdown */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-slate-950 flex flex-col items-center justify-center space-y-8 text-xl font-bold text-slate-400 md:hidden z-40">
-              <a href="#about" onClick={closeMenu} className="hover:text-teal-400 transition">About</a>
-              <a href="#skills" onClick={closeMenu} className="hover:text-teal-400 transition">Skills</a>
-              <a href="#projects" onClick={closeMenu} className="hover:text-teal-400 transition">Projects</a>
-              <a href="#contact" onClick={closeMenu} className="hover:text-teal-400 transition">Contact</a>
+            <div className="fixed inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center space-y-10 text-2xl font-bold text-slate-300 md:hidden z-40 h-screen w-screen">
+              <a href="#about" onClick={closeMenu} className="hover:text-teal-400 transition duration-300 transform hover:scale-110">About</a>
+              <a href="#skills" onClick={closeMenu} className="hover:text-teal-400 transition duration-300 transform hover:scale-110">Skills</a>
+              <a href="#projects" onClick={closeMenu} className="hover:text-teal-400 transition duration-300 transform hover:scale-110">Projects</a>
+              <a href="#contact" onClick={closeMenu} className="hover:text-teal-400 transition duration-300 transform hover:scale-110">Contact</a>
             </div>
           )}
         </div>
