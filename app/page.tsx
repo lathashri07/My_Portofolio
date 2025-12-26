@@ -5,7 +5,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import { 
   Github, Linkedin, Mail, ExternalLink, Code2, Database, Terminal, 
   Cpu, Server, PlayCircle, FileDown, User, Briefcase, FolderOpen, Send,
-  Menu, X // Added Menu and X icons for mobile nav
+  Menu, X, Bug // Added Menu and X icons for mobile nav
 } from 'lucide-react';
 
 export default function Portfolio() {
@@ -142,10 +142,10 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-4 text-slate-400 leading-relaxed">
               <p>
-                I am a Computer Science Engineering student with a strong interest in <span className="text-teal-400">Full Stack Web Development</span> and <span className="text-teal-400">Machine Learning</span>. I enjoy building practical, real-world applications that help me strengthen my problem-solving and technical skills.
+                I am a Computer Science Engineering student with a strong interest in <span className="text-teal-400">Full Stack Web Development</span> and <span className="text-teal-400">Software Quality Assurance</span>. I enjoy building practical, real-world applications while ensuring they are bug-free and user-friendly.
               </p>
               <p>
-                Currently, I am focused on improving my backend development skills using JavaScript while continuously learning and experimenting with new technologies.
+                Currently, I am focused on improving my backend development skills using JavaScript while continuously learning manual testing methodologies and automation tools.
               </p>
             </div>
             {/* Simple Tech Stack Highlight */}
@@ -155,7 +155,10 @@ export default function Portfolio() {
                  <li className="flex items-center gap-2"><Code2 size={14} className="text-teal-400"/> React.js</li>
                  <li className="flex items-center gap-2"><Terminal size={14} className="text-teal-400"/> Node.js</li>
                  <li className="flex items-center gap-2"><Database size={14} className="text-teal-400"/> MySQL</li>
-                 <li className="flex items-center gap-2"><Cpu size={14} className="text-teal-400"/> Machine Learning</li>
+                 
+                 {/* Updated to QA & Testing */}
+                 <li className="flex items-center gap-2"><Bug size={14} className="text-teal-400"/> QA & Testing</li>
+                 
                  <li className="flex items-center gap-2"><Server size={14} className="text-teal-400"/> AWS & Azure</li>
                  <li className="flex items-center gap-2"><Code2 size={14} className="text-teal-400"/> Java & Python</li>
                </ul>
@@ -182,19 +185,32 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Skills Section */}
+        {/* Skills Section - Redesigned as 3 Broad Lines */}
         <section id="skills" className="space-y-8 scroll-mt-24">
           <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-3">
             <Cpu className="text-teal-400" size={28} /> Technical Skills
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <SkillCard title="Languages" skills={["Java", "Python", "C", "JavaScript"]} />
-            <SkillCard title="Frontend" skills={["React.js", "HTML", "CSS", "Vite", "Figma"]} />
-            <SkillCard title="Backend" skills={["Node.js", "Express.js", "Spring Boot"]} />
-            <SkillCard title="Database" skills={["MySQL", "MongoDB", "SQL"]} />
-            <SkillCard title="DevOps & Cloud" skills={["AWS", "Azure", "Linux", "Netlify", "Git/GitHub"]} />
-            <SkillCard title="Other" skills={["DSA", "ML", "API Integration", "Problem Solving", "Responsive Design"]} />
+          <div className="space-y-6"> {/* Changed from Grid to Stack (Lines) */}
+            
+            {/* Line 1: Development Core */}
+            <SkillLine 
+              title="Application Development" 
+              skills={["Java", "Python", "C", "JavaScript", "React.js", "Node.js", "Express.js", "API Integration", "HTML/CSS", "Tailwind"]} 
+            />
+
+            {/* Line 2: Data & Quality Assurance (QA) */}
+            <SkillLine 
+              title="Data & Quality Assurance" 
+              skills={["MySQL", "MongoDB", "SQL", "Manual Testing", "JIRA", "Test Planning", "Bug Life Cycle", "SQL Verification"]} 
+            />
+
+            {/* Line 3: Infrastructure & Tools */}
+            <SkillLine 
+              title="Cloud, Tools & Concepts" 
+              skills={["AWS", "Azure", "Linux", "Git/GitHub", "Figma", "Netlify", "DSA", "Machine Learning", "Problem Solving"]} 
+            />
+            
           </div>
         </section>
 
@@ -207,20 +223,11 @@ export default function Portfolio() {
           <div className="grid gap-8">
     
             <ProjectCard 
-              title="Mental Health Web Application"
+              title="Healware - Mental Health & Well-being Platform"
               description="A full-fledged mental health support web application designed to help users manage stress and emotional well-being. Includes AI chatbot, music therapy, and doctor consultation modules."
-              tags={["Node.js", "Express", "MySQL", "Azure", "AI"]}
-              link="YOUR_GITHUB_LINK_HERE"
-              videoLink="https://drive.google.com/file/d/1jriNssdilFk_Wle1_zZvSdmDuc_4xuU6/view?usp=drive_link"
-              demoLink="https://your-mental-health-app.vercel.app" 
-            />
-
-            <ProjectCard 
-              title="AI Talking Doll (Virtual Doctor)"
-              description="An AI-powered virtual doctor feature designed for users who prefer not to talk to real people. It provides mental health guidance through conversational interaction using AI-based responses."
-              tags={["JavaScript", "AI APIs", "Azure Services"]}
-              link="YOUR_GITHUB_LINK_HERE"
-              videoLink="YOUR_YOUTUBE_OR_DRIVE_LINK_HERE"
+              tags={["React.js", "Node.js", "Express", "MySQL", "Gemini"]}
+              link="https://github.com/lathashri07/Mental_Health_Web"
+              videoLink="https://youtu.be/zOLWapYvFM0"
             />
 
              <ProjectCard 
@@ -229,6 +236,13 @@ export default function Portfolio() {
               tags={["HTML", "Tailwind CSS", "JavaScript"]}
               link="https://github.com/lathashri07/Mobile_Responsive_Project"
               demoLink="https://mobile-responsive-project.vercel.app/"
+             />
+
+             <ProjectCard 
+              title="QA Audit: OrangeHRM Module"
+              description="Performed a complete manual QA audit of the OrangeHRM Open Source Demo. Designed Test Plans (IEEE 829), authored 20+ Test Cases, executed SQL verifications, and managed the defect lifecycle in JIRA."
+              tags={["Manual Testing", "JIRA", "SQL", "Test Planning", "Bug Tracking"]}
+              link="https://github.com/lathashri07/Manual-Testing-Portfolio-OrangeHRM" 
              />
           </div>
         </section>
@@ -321,6 +335,27 @@ function ProjectCard({ title, description, tags, link, videoLink, demoLink }: { 
           Watch Demo Video
         </a>
       )}
+    </div>
+  );
+}
+
+// New Helper Component for "Line" Style
+function SkillLine({ title, skills }: { title: string, skills: string[] }) {
+  return (
+    <div className="bg-slate-900/50 p-6 rounded-lg border border-slate-800 hover:border-teal-400/30 transition duration-300">
+      <div className="flex flex-col md:flex-row md:items-center gap-4">
+        {/* Category Title */}
+        <h3 className="text-teal-400 font-bold text-lg min-w-[200px]">{title}</h3>
+        
+        {/* Skills List */}
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span key={skill} className="px-3 py-1 bg-slate-800 text-slate-300 text-xs font-mono rounded-full border border-slate-700 hover:text-teal-400 hover:border-teal-400/50 transition">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
