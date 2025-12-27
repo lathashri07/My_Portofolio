@@ -95,7 +95,7 @@ export default function Portfolio() {
             
             <div className="flex flex-col md:flex-row gap-4 pt-4 justify-center md:justify-start">
               <a 
-                href="/resume.pdf" 
+                href="/LathashriKH.pdf" 
                 download="Lathashri_Resume.pdf"
                 className="flex items-center justify-center gap-2 px-6 py-3 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition group"
               >
@@ -124,7 +124,7 @@ export default function Portfolio() {
               }}
             >
                <Image
-                 src="/profile.jpg" 
+                 src="/RK.jpg" 
                  alt="Profile Picture of Lathashri K H"
                  fill 
                  className="object-cover grayscale hover:grayscale-0 transition duration-500"
